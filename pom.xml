@@ -29,7 +29,7 @@
     <artifactId>openwebbeans</artifactId>
     <name>Apache OpenWebBeans</name>
     <packaging>pom</packaging>
-    <version>1.2.8</version>
+    <version>1.2.8-TT.1</version>
 
     <url>openwebbeans.apache.org</url>
 
@@ -57,10 +57,17 @@
     </issueManagement>
 
     <distributionManagement>
-        <site>
-            <id>apache.openwebbeans.site</id>
-            <url>scp://minotaur.apache.org/www/openwebbeans.apache.org/${project.version}</url>
-        </site>
+        <repository>
+            <id>tomitribe.releases.https</id>
+            <name>Tomitribe Release Distribution Repository</name>
+            <url>https://repository.tomitribe.com/service/local/staging/deploy/maven2</url>
+        </repository>
+
+        <snapshotRepository>
+            <id>tomitribe.snapshots.https</id>
+            <name>Tomitribe Development Snapshot Repository</name>
+            <url>https://repository.tomitribe.com/content/repositories/snapshots-tomitribe</url>
+        </snapshotRepository>
     </distributionManagement>
 
     <properties>
