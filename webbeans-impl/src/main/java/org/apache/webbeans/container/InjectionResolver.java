@@ -481,7 +481,20 @@ public class InjectionResolver
 
         boolean returnAll = injectionPointType.equals(Object.class) && currentQualifier;
 
-        for (Bean<?> component : webBeansContext.getBeanManagerImpl().getBeans())
+        Set<Bean<?>> beans = webBeansContext.getBeanManagerImpl().getBeans();
+
+        if(beans!=null && !beans.isEmpty())
+        {
+            System.out.println("LOGGER_TT: "+beans.size());
+            logger.log(Level.INFO, "LOGGER_TT: "+beans.size());
+        }
+        else
+        {
+            System.out.println("LOGGER_TT: webBeansContext.getBeanManagerImpl().getBeans() is empty or null");
+            logger.log(Level.INFO, "LOGGER_TT: webBeansContext.getBeanManagerImpl().getBeans() is empty or null");
+        }
+
+        for (Bean<?> component :  beans)
         {
             // no need to check instanceof OwbBean as we always wrap in a
             // ThirdpartyBeanImpl at least
